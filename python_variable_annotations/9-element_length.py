@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""Typing Annotations"""
+
+
 from typing import List
 import typing
 
