@@ -33,10 +33,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        assert page > 0
+        """return the dataset of the page"""
+        assert isinstance(page, int) and page > 0
         if page < 0:
             return []
-        assert isinstance(page_size, int) > 0
+        assert isinstance(page_size, int) and page_size > 0
         if page_size < 0:
             return []
         dataset = self.dataset()
