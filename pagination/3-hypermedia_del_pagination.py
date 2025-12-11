@@ -40,6 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> dict:
+        """get hyper index"""
         dataset = self.indexed_dataset()
         assert 0 <= index < len(dataset)
         data = []
