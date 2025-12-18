@@ -10,6 +10,6 @@ from typing import List
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """import wait_random and return list"""
-    n = wait_random() 
-    await asyncio.sleep(max_delay)
-    return max_delay
+    task = [wait_random(max_delay) for _ in range(n)]
+    delay = await asyncio.gather(*task)
+    return sorted(delay)
