@@ -3,17 +3,17 @@
 
 
 from async_comprehension import async_comprehension
-import asyncio
+from asyncio import gather, get_event_loop
 
 
 async def measure_runtime() -> float:
     """measure total runtime and return it"""
-    start = asyncio.get_event_loop().time()
-    await asyncio.gather(
+    start = get_event_loop().time()
+    await gather(
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
     )
-    end = asyncio.get_event_loop().time()
+    end = get_event_loop().time()
     return end - start
