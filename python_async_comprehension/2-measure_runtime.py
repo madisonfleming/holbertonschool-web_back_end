@@ -10,9 +10,8 @@ async def measure_runtime() -> float:
     """measure total runtime and return it"""
     start = get_event_loop().time()
     await gather(async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-    )
+                 async_comprehension(),
+                 async_comprehension(),
+                 async_comprehension())
     end = get_event_loop().time()
     return end - start
