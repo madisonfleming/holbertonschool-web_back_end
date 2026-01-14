@@ -4,7 +4,7 @@ const r1 = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-process.on('exit', () => {
+process.on('SIGINT', () => {
   console.log('This important software is now closing');
   process.exit();
 });
