@@ -8,7 +8,10 @@ process.on('SIGINT', () => {
   console.log('This important software is now closing');
   process.exit();
 });
-r1.question('Welcome to Holberton School, what is your name?', (name) => {
+
+process.stdout.write('Welcome to Holberton School, what is your name?');
+
+r1.question('', (name) => {
   console.log(`Your name is: ${name}`);
   r1.close();
 });
