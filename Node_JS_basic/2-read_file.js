@@ -7,14 +7,14 @@ module.exports = function countStudents(path) {
     console.log(`Number of students: ${students.length}`);
     const fields = {};
     students.forEach((line) => {
-        const [firstname, , , field] = line.split(',');
-        fields[field] = fields[field] || [];
-        fields[field].push(firstname);
+      const [firstname, , , field] = line.split(',');
+      fields[field] = fields[field] || [];
+      fields[field].push(firstname);
     });
     Object.entries(fields).forEach(([field, names]) => {
-        console.log(
-            `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`,
-        );
+      console.log(
+        `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`,
+      );
     });
   } catch (err) {
     throw new Error('Cannot load the database');
