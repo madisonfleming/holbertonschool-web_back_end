@@ -2,6 +2,7 @@ const http = require('http');
 const countStudents = require('./3-read_file_async');
 
 const port = 1245;
+const database = process.argv[2];
 
 const app = http.createServer(async (req, res) => {
   if (req.url === '/') {
@@ -13,7 +14,7 @@ const app = http.createServer(async (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     res.write('This is the list of our students\n');
     try {
-      const students = await countStudents('database.csv');
+      const students = await countStudents(database);
       res.end(students);
     } catch (error) {
       res.end(error.message);
